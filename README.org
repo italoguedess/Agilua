@@ -1,7 +1,7 @@
 * Agilua
   "Orgmode friendly Kanban table written in lua."
 
-  Easy visualization of your orgmode task lists in an kanban table.
+  Easy visualization of your orgmode task lists in a kanban table.
 
   [[./figs/Agilua.png]]
 
@@ -13,5 +13,4 @@
      #+begin_src shell
       love /path/to/Agilua /path/to/org-file.org
      #+end_src
-
    - A template org file can be found at ~examples/~.
