@@ -19,11 +19,14 @@ function File.read_cards(fname)
 		local card = {}
 		card.title = string.sub(string.match(card_strings[i], "%u%p%s.+%s[:][%w:]"), 4, -4)
 		card.status = string.match(card_strings[i], "[%a_]+")
-		card.priority = string.sub(string.match(card_strings[i], "%p%u"), 2)
+		card.priority = string.sub(string.match(card_strings[i], "%p%p%u%p"), 3, -2)
 		-- {or " "} in case string match returns nil meaning there are no tags
 		card.tags = string.sub(string.match(card_strings[i], "[:].+[:]") or " ", 1, -2)
 		card.description = string.sub(string.match(card_strings[i], "[:][\n].+"), 3, -1)
 		cards[i] = Card.create(card)
+		if card.status == "IN_PROGRESS" then
+			print(card.title, card.priority)
+		end
 	end
 
 	return cards
