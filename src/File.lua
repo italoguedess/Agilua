@@ -24,9 +24,6 @@ function File.read_cards(fname)
 		card.tags = string.sub(string.match(card_strings[i], "[:].+[:]") or " ", 1, -2)
 		card.description = string.sub(string.match(card_strings[i], "[:][\n].+"), 3, -1)
 		cards[i] = Card.create(card)
-		if card.status == "IN_PROGRESS" then
-			print(card.title, card.priority)
-		end
 	end
 
 	return cards
